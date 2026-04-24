@@ -1,9 +1,27 @@
-local redzlib = 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/
-Source.Lua"))()
+local redzlib
+
+local req = (syn and syn.request) or (http and http.request) or http_request
+
+pcall(function()
+    if req then
+        local res = req({
+            Url = "https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua",
+            Method = "GET"
+        })
+        redzlib = loadstring(res.Body)()
+    else
+        redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
+    end
+end)
+
+if not redzlib then
+    warn("RedzLib failed to load")
+    return
+end
+
 local Window = redzlib:MakeWindow({
   Title = "redz Hub : Blox Fruits",
-  SubTitle = "by redz99",
+  SubTitle = "by redz999",
   SaveFolder = "redz Hub | Blox Fruits.lua"
 })
 local AFKOptions = {}
@@ -13,7 +31,7 @@ Discord:AddDiscordInvite({
   Description = "Join our discord community to receive information about the next 
 update",
   Logo = "rbxassetid://15298567397",
-  Invite = "https://discord.gg/redzhub"
+  Invite = "https://discord.gg/7aR7kNVt4g"
 })
 local MainFarm = Window:MakeTab({"Farm", "Home"})
 if Sea3 then
