@@ -33,7 +33,7 @@ if Sea3 then
       while getgenv().TradeAzureEmber do task.wait(1)
         KitsuneRemote:InvokeServer()
       end
-    end)
+end)
   end})
   task.spawn(function()
     local Map = workspace:WaitForChild("Map", 9e9)
@@ -45,9 +45,9 @@ if Sea3 then
             Distance = tostring(math.floor((plrPP.Position - 
 Map.KitsuneIsland.WorldPivot.p).Magnitude / 3))
           end
-        end
+end
       end
-    end)
+end)
     
     while task.wait() do
       if Map:FindFirstChild("KitsuneIsland") then
@@ -55,7 +55,7 @@ Map.KitsuneIsland.WorldPivot.p).Magnitude / 3))
       else
         KILabel:SetTitle("Kitsune Island : not Spawn")
       end
-    end
+end
   end)
   AutoSea:AddSection({"Sea"})
   AutoSea:AddToggle({Name = "Auto Farm Sea",Callback = function(Value)
@@ -76,10 +76,9 @@ Map.KitsuneIsland.WorldPivot.p).Magnitude / 3))
           if Model.Name == "Model" and Model:FindFirstChild("Tree") then
             return Model
           end
-        end
+end
       end
-      
-      local function GetTree()
+local function GetTree()
         local Tree = TreeModel()
         if Tree then
           local Nearest = math.huge
@@ -92,28 +91,32 @@ Nearest then
                 Nearest = (plrPP.Position - tree.PrimaryPart.Position).Magnitude
                 selected = tree
               end
-            end
+end
           end
-          return selected
+return selected
         end
-      end
+end
       
       local RandomEquip = ""
       task.spawn(function()
         while getgenv().AutoWoodPlanks do
           if VerifyToolTip("Melee") then
-            RandomEquip = "Melee"task.wait(2)
+            RandomEquip = "Melee"
+ task.wait(2)
           end
-          if VerifyToolTip("Blox Fruit") then
-            RandomEquip = "Blox Fruit"task.wait(3)
+if VerifyToolTip("Blox Fruit") then
+            RandomEquip = "Blox Fruit"
+ task.wait(3)
           end
-          if VerifyToolTip("Sword") then
-            RandomEquip = "Sword"task.wait(2)
+if VerifyToolTip("Sword") then
+            RandomEquip = "Sword"
+ task.wait(2)
           end
-          if VerifyToolTip("Gun") then
-            RandomEquip = "Gun"task.wait(2)
+if VerifyToolTip("Gun") then
+            RandomEquip = "Gun"
+ task.wait(2)
           end
-        end
+end
       end)
       
       while getgenv().AutoWoodPlanks do task.wait()
@@ -127,24 +130,24 @@ then
             if getgenv().SeaSkillZ then
               KeyboardPress("Z")
             end
-            if getgenv().SeaSkillX then
+if getgenv().SeaSkillX then
               KeyboardPress("X")
             end
-            if getgenv().SeaSkillC then
+if getgenv().SeaSkillC then
               KeyboardPress("C")
             end
-            if getgenv().SeaSkillV then
+if getgenv().SeaSkillV then
               KeyboardPress("V")
             end
-            if getgenv().SeaSkillF then
+if getgenv().SeaSkillF then
               KeyboardPress("F")
             end
-            if getgenv().SeaAimBotSkill then
+if getgenv().SeaAimBotSkill then
               AimBotPart(Tree.PrimaryPart)
             end
-          end
+end
         end
-      end
+end
     end)
   end})
   AutoSea:AddSection({"Panic Mode"})
@@ -226,7 +229,7 @@ function(Value)
       while getgenv().NPCtween do task.wait()
         PlayerTP(CFrame.new(-16526, 108, 752))
       end
-    end)
+end)
   end})
   AutoSea:AddToggle({Name = "Teleport To Beast Hunter",Callback = function(Value)
     getgenv().NPCtween = Value
@@ -234,7 +237,7 @@ function(Value)
       while getgenv().NPCtween do task.wait()
         PlayerTP(CFrame.new(-16281, 73, 263))
       end
-    end)
+end)
   end})
   AutoSea:AddToggle({Name = "Teleport To Spy",Callback = function(Value)
     getgenv().NPCtween = Value
@@ -242,7 +245,7 @@ function(Value)
       while getgenv().NPCtween do task.wait()
         PlayerTP(CFrame.new(-16471, 528, 539))
       end
-    end)
+end)
   end})
   AutoSea:AddSection({"Configs"})
   AutoSea:AddDropdown({
@@ -289,19 +292,17 @@ if Sea3 and IsOwner then
     local function GetGear()
       
     end
-    
-    local function LookToMoon()
+local function LookToMoon()
       local MoonDirection = Lighting:GetMoonDirection()
       local LookToPos = Camera.CFrame.p + moonDir * 100
       Camera.CFrame = CFrame.lookAt(Camera.CFrame.p, LookToPos0)
     end
-    
-    local Connection = RunService.Heartbeat:Connect(LookToMoon)
+local Connection = RunService.Heartbeat:Connect(LookToMoon)
     while getgenv().AutoMiragePuzzle do task.wait()end
-    if Connection then
+if Connection then
       Connection:Disconnect()
     end
-  end})
+end})
   
   MirageTab:AddSection({"Auto Race"})
   
@@ -313,7 +314,7 @@ if Sea3 and IsOwner then
         while getgenv().AutoFinishTrial do task.wait()
           PlayerRace = Player.Data.Race.Value
         end
-      end)
+end)
       
       while getgenv().AutoFinishTrial do task.wait()
         if PlayerRace and typeof(PlayerRace) == "string" then
@@ -324,23 +325,25 @@ if Sea3 and IsOwner then
           elseif PlayerRace == "Human" then
             KillAura()
           elseif PlayerRace == "Mink" then
-            for _,part in pairs(workspace:GetDescendants()) do
+            for _,part in pairs(workspace:GetDescend
+ants()) do
               if part.Name == "StartPoint" then
                 PlayerTP(part.CFrame)
               end
-            end
+end
           elseif PlayerRace == "Skypiea" then
             pcall(function()
-              for _,part in pairs(workspace.Map.SkyTrial.Model:GetDescendants()) do
+              for _,part in pairs(workspace.Map.SkyTrial.Model:GetDescend
+ants()) do
                 if part.Name ==  "snowisland_Cylinder.081" then
                   PlayerTP(part.CFrame)
                 end
-              end
+end
             end)
           end
-        end
+end
       end
-    end)
+end)
   end})
 end
 local QuestsTabs = Window:MakeTab({"Quests/Items", "Swords"})
@@ -363,28 +366,27 @@ if PlayerLevel.Value < MaxLavel then
         local Points = math.clamp(PointsSlider, 1, Player.Data.Points.Value)
   FireRemote("AddPoint", Stats, Points)
 end
-    end
+end
     
     while getgenv().AutoStats do task.wait()
       if Melee then
         AddStats("Melee")
       end
-      if Defense then
+if Defense then
         AddStats("Defense")
       end
-      if Sword then
+if Sword then
         AddStats("Sword")
       end
-      if Gun then
+if Gun then
         AddStats("Gun")
       end
-      if DemonFruit then
+if DemonFruit then
         AddStats("Demon Fruit")
       end
-    end
+end
   end
-  
-  StatsTab:AddToggle({
+StatsTab:AddToggle({
     Name = "Auto Stats",
     Flag = "Stats/AutoStats",
     Callback = function(Value)
@@ -485,13 +487,13 @@ task.spawn(function()
       if tonumber(TimerL[2]) >= 1 then
         Timer = tonumber(TimerL[2]) * 60
       end
-      Timer = Timer + tonumber(TimerL[3])
+Timer = Timer + tonumber(TimerL[3])
       
       getgenv().TimeToGift = Timer
     else
       getgenv().TimeToGift = 0
     end
-  end
+end
 end)
 if PlayerLevel.Value >= MaxLavel and Sea3 then
   MainFarm:AddToggle({"Auto Farm Candy", false, function(Value)
@@ -515,9 +517,9 @@ npc.Name == "Island Boy" or npc.Name == "Isle Outlaw" then
 npc.HumanoidRootPart.Position).Magnitude
               NPC = npc
             end
-          end
+end
         end
-        for _,npc in pairs(Enemies2:GetChildren()) do
+for _,npc in pairs(Enemies2:GetChildren()) do
           if npc.Name == "Isle Champion" or npc.Name == "Sun-kissed Warrior" or 
 npc.Name == "Island Boy" or npc.Name == "Isle Outlaw" then
             if plrChar and npc and npc:FindFirstChild("HumanoidRootPart") and 
@@ -526,12 +528,11 @@ npc.Name == "Island Boy" or npc.Name == "Isle Outlaw" then
 npc.HumanoidRootPart.Position).Magnitude
               NPC = npc
             end
-          end
+end
         end
-        return NPC
+return NPC
       end
-      
-      while getgenv().AutoCandy do task.wait()
+while getgenv().AutoCandy do task.wait()
         if Configure("Candy") then
         else
           local Enemie = GetProxyNPC()
@@ -540,9 +541,9 @@ npc.HumanoidRootPart.Position).Magnitude
             pcall(function()PlayerClick()ActiveHaki()EquipTool()BringNPC(Enemie, 
 true)end)
           end
-        end
+end
       end
-    end)
+end)
   end})
 end
 MainFarm:AddToggle({"Auto Gift", false, function(Value)
@@ -555,9 +556,9 @@ MainFarm:AddToggle({"Auto Gift", false, function(Value)
 part.Box:FindFirstChild("ProximityPrompt") then
             return part, part.Box.ProximityPrompt
           end
-        end
+end
       end
-    end
+end
     
     while getgenv().AutoGift do task.wait()
       local Gift, Prompt = GetGift()
@@ -567,7 +568,7 @@ part.Box:FindFirstChild("ProximityPrompt") then
         if Prompt then
           fireproximityprompt(Prompt)
         end
-      elseif getgenv().TimeToGift < 90 then
+elseif getgenv().TimeToGift < 90 then
         if Sea3 then
           PlayerTP(CFrame.new(-1076, 14, -14437))
         elseif Sea2 then
@@ -575,9 +576,9 @@ part.Box:FindFirstChild("ProximityPrompt") then
         elseif Sea1 then
           PlayerTP(CFrame.new(1007, 15, -3805))
         end
-      end
+end
     end
-  end)
+end)
 end})]]
 if Sea3 then
   MainFarm:AddSection({"Bone"})
@@ -605,7 +606,7 @@ if Sea3 then
       while getgenv().AutoTradeBone do task.wait()
         FireRemote("Bones", "Buy", 1, 1)
       end
-    end
+end
   }))
   
 elseif Sea2 then
@@ -654,7 +655,7 @@ function UpdateBossList()
     if VerifyNPC(NameBoss) then
       table.insert(NewOptions, NameBoss)
     end
-  end
+end
   BossList:Set(NewOptions, true)
 end
 UpdateBossList()
@@ -822,9 +823,9 @@ and Fruit:FindFirstChild("Fruit") then
 true then
                 table.insert(Fruit_BlackList, Fruit.Name)
               end
-            end
+end
           end
-        end
+end
         for _,Fruit in pairs(plrBag:GetChildren()) do
           if not table.find(Fruit_BlackList, Fruit.Name) and Fruit:IsA("Tool") and 
 Fruit:FindFirstChild("Fruit") then
@@ -832,9 +833,9 @@ Fruit:FindFirstChild("Fruit") then
 true then
               table.insert(Fruit_BlackList, Fruit.Name)
             end
-          end
+end
         end
-      end
+end
     end)
   end
 })
@@ -854,9 +855,9 @@ table.insert(AFKOptions, FruitAndRaid:AddToggle({
           else
             getgenv().TeleportingToFruit = false
           end
-        end
+end
       end
-    end)
+end)
   end
 }))
 FruitAndRaid:AddToggle({
@@ -868,7 +869,7 @@ FruitAndRaid:AddToggle({
       while getgenv().AutoRandomFruit do task.wait(1)
         FireRemote("Cousin", "Buy")
       end
-    end)
+end)
   end
 })
 FruitAndRaid:AddSection({"Raid"})
@@ -906,16 +907,15 @@ elseif Sea2 or Sea3 then
 plrPP.Position).Magnitude < 3000 then
               return island
             end
-          end
+end
         end
-        
-        task.spawn(function()
+task.spawn(function()
           while getgenv().AutoFarmRaid do task.wait(0.5)
             if Configure("Raid") then
             else
               FireRemote("Awakener", "Check")FireRemote("Awakener", "Awaken")
             end
-          end
+end
         end)
         
         task.spawn(function()
@@ -924,7 +924,7 @@ plrPP.Position).Magnitude < 3000 then
               FireRemote("ThunderGodTalk", true)
               FireRemote("ThunderGodTalk")
             end
-          end
+end
         end)
         
         task.spawn(function()
@@ -957,12 +957,12 @@ plrPP.Position).Magnitude < 3000 then
                 else
                   getgenv().FarmingRaid = false
                 end
-              else
+else
                 getgenv().FarmingRaid = false
               end
-            end
+end
           end
-        end)
+end)
         
         while getgenv().AutoFarmRaid do task.wait()
           if Configure("Raid") then
@@ -978,17 +978,19 @@ Microchip") then
                   if Sea2 then
                     
 fireclickdetector(workspace.Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
-                    repeat task.wait()until GetIsland("Island 1")task.wait(1)
+                    repeat task.wait()until GetIsland("Island 1")
+ task.wait(1)
                   elseif Sea3 then
                     fireclickdetector(workspace.Map["Boat 
 Castle"].RaidSummon2.Button.Main.ClickDetector)
-                    repeat task.wait()until GetIsland("Island 1")task.wait(1)
+                    repeat task.wait()until GetIsland("Island 1")
+ task.wait(1)
                   end
-                end)
+end)
               end
-            end
+end
           end
-        end
+end
       end)
       getgenv().AutoKillAura = Value
       AutoKillAura()
@@ -1000,9 +1002,10 @@ Castle"].RaidSummon2.Button.Main.ClickDetector)
     task.spawn(function()
       while getgenv().AutoBuyChip do task.wait()
         if not VerifyTool("Special Microchip") then
-          FireRemote("RaidsNpc", "Select", getgenv().SelectRaidChip)task.wait(1)
+          FireRemote("RaidsNpc", "Select", getgenv().SelectRaidChip)
+ task.wait(1)
         end
-      end
+end
     end)
   end})
 end
@@ -1100,18 +1103,26 @@ elseif Sea2 then
     end
   })
   
-  QuestsTabs:AddSection({"Legendary Sword"})
+  QuestsTabs:AddSection({"Legend
+ary Sword"})
   
-  QuestsTabs:AddToggle({"Auto Buy Legendary Sword", false, function(Value)
-    getgenv().AutoLegendarySword = Value
+  QuestsTabs:AddToggle({"Auto Buy Legend
+ary Sword", false, function(Value)
+    getgenv().AutoLegend
+arySword = Value
     task.spawn(function()
-      while getgenv().AutoLegendarySword do task.wait(0.5)
-        FireRemote("LegendarySwordDealer", "1")
-        FireRemote("LegendarySwordDealer", "2")
-        FireRemote("LegendarySwordDealer", "3")
+      while getgenv().AutoLegend
+arySword do task.wait(0.5)
+        FireRemote("Legend
+arySwordDealer", "1")
+        FireRemote("Legend
+arySwordDealer", "2")
+        FireRemote("Legend
+arySwordDealer", "3")
       end
-    end)
-  end, "Buy/LegendarySword",})
+end)
+  end, "Buy/Legend
+arySword",})
   
   QuestsTabs:AddToggle({
     Name = "Auto Buy True Triple Katana",
@@ -1123,7 +1134,7 @@ elseif Sea2 then
           FireRemote("MysteriousMan", "1")
           FireRemote("MysteriousMan", "2")
         end
-      end)
+end)
     end
   })
   
@@ -1168,7 +1179,7 @@ elseif Sea2 then
           if not VerifyNPC("Order") and not VerifyTool("Microchip") then
   FireRemote("BlackbeardReward", "Microchip", "2")
 end
-        end
+end
       end)
     end
   })
@@ -1185,7 +1196,7 @@ end
 fireclickdetector(workspace.Map.CircleIsland.RaidSummon.Button.Main.ClickDetector)
   end)
 end
-        end
+end
       end)
     end
   })
@@ -1211,7 +1222,7 @@ elseif Sea3 then
       else
         LabelElite:SetTitle("Elite Stats : not Spawn")
       end
-    end
+end
   end)
   
   if not IsOwner then
@@ -1220,10 +1231,9 @@ elseif Sea3 then
         LabelElit3:SetTitle("Elite Hunter progress : " .. FireRemote("EliteHunter",
 "Progress"))
       end
-    end)
+end)
   end
-  
-  table.insert(AFKOptions, QuestsTabs:AddToggle({
+table.insert(AFKOptions, QuestsTabs:AddToggle({
     Name = "Auto Elite Hunter",
     Callback = function(Value)
       getgenv().AutoEliteHunter = Value
@@ -1243,9 +1253,9 @@ elseif Sea3 then
               
 fireclickdetector(workspace.Map.Waterfall.SealedKatana.Handle.ClickDetector)
             end
-          end)
+end)
         end
-      end)
+end)
     end
   }))
   
@@ -1267,7 +1277,7 @@ fireclickdetector(workspace.Map.Waterfall.SealedKatana.Handle.ClickDetector)
       else
         LabelRipIndra:SetTitle("Rip Indra Stats : not Spawn")
       end
-    end
+end
   end)
   
   QuestsTabs:AddToggle({
@@ -1295,7 +1305,7 @@ fireclickdetector(workspace.Map.Waterfall.SealedKatana.Handle.ClickDetector)
             else
               PlayerTP(CFrame.new(-10218, 333, -9444))
             end
-          elseif VerifyNPC("rip_indra True Form") then
+elseif VerifyNPC("rip_indra True Form") then
             if not VerifyTool("Holy Torch") then
               PlayerTP(CFrame.new(5152, 142, 912))
             else
@@ -1334,7 +1344,7 @@ Torch5.Particles.PointLight.Enabled
               else
                 Active5 = true
               end
-            end
+end
           else
             if VerifyTool("God's Chalice") then
               EquipToolName("God's Chalice")
@@ -1351,8 +1361,7 @@ Torch5.Particles.PointLight.Enabled
               else
                 task.spawn(function()FireRemote("EliteHunter")end)
               end
-              
-              local EliteBoss = GetEnemies({NPC})
+local EliteBoss = GetEnemies({NPC})
               
               if EliteBoss and EliteBoss:FindFirstChild("HumanoidRootPart") then
                 PlayerTP(EliteBoss.HumanoidRootPart.CFrame + getgenv().FarmPos)
@@ -1362,11 +1371,11 @@ VerifyNPC("Urban") then
                 if getgenv().AutoTushitaHop then
                   ServerHop()
                 end
-              end
+end
             end
-          end
+end
         end
-      end)
+end)
     end
   })
   
@@ -1393,11 +1402,10 @@ VerifyNPC("Urban") then
           CakeLabel:SetTitle("Stats : " .. string.gsub(tostring(EnemiesCake), "%D",
 ""))
         end
-      end
+end
     end)
   end
-  
-  local CakePrinceToggle = QuestsTabs:AddToggle({"Auto Cake Prince", false, 
+local CakePrinceToggle = QuestsTabs:AddToggle({"Auto Cake Prince", false, 
 function(Value)
     getgenv().AutoCakePrince = Value
     AutoCakePrince()
@@ -1416,9 +1424,11 @@ function(Value)
   
   local ActiveButtonToggle = QuestsTabs:AddToggle({"Auto Active Button Haki Color",
 false, function(Value)
-    getgenv().RipIndraLegendaryHaki = Value
+    getgenv().RipIndraLegend
+aryHaki = Value
     task.spawn(function()
-      while getgenv().RipIndraLegendaryHaki do task.wait()
+      while getgenv().RipIndraLegend
+aryHaki do task.wait()
         local plrChar = Player and Player.Character and 
 Player.Character.PrimaryPart
         if (plrChar.Position - Vector3.new(-5415, 314, -2212)).Magnitude < 5 then
@@ -1430,11 +1440,12 @@ then
 then
           FireRemote("activateColor", "Winter Sky")
         end
-      end
+end
     end)
     
     task.spawn(function()
-      while getgenv().RipIndraLegendaryHaki do task.wait()
+      while getgenv().RipIndraLegend
+aryHaki do task.wait()
         if not getgenv().AutoFarm_Level and not getgenv().AutoFarmBone and not 
 getgenv().AutoCakePrince then
           if GetButton() then
@@ -1442,9 +1453,9 @@ getgenv().AutoCakePrince then
           elseif not GetButton() and not getgenv().AutoRipIndra then
             PlayerTP(CFrame.new(-5119, 315, -2964))
           end
-        end
+end
       end
-    end)
+end)
   end})
   
   local RipIndraToggle = QuestsTabs:AddToggle({"Auto Rip Indra", false, 
@@ -1510,25 +1521,21 @@ Fighter" then
 npc.HumanoidRootPart.Position).Magnitude
                 NPC = npc
               end
-            end
+end
           end
-          return NPC
+return NPC
         end
-        
-        while getgenv().AutoDeathStep do task.wait()
+while getgenv().AutoDeathStep do task.wait()
           if VerifyTool("Black Leg") then
             MasteryBlackLeg = GetToolLevel("Black Leg")
           end
-          
-          if MasteryBlackLeg >= 400 and Sea3 then
+if MasteryBlackLeg >= 400 and Sea3 then
             FireRemote("TravelDressrosa")
           end
-            
-          if KeyFind then
+if KeyFind then
             FireRemote("BuyDeathStep")
           end
-          
-          if VerifyTool("Death Step") then
+if VerifyTool("Death Step") then
             EquipToolName("Death Step")
           elseif MasteryBlackLeg >= 400 then
             local Enemie = Enemies:FindFirstChild("Awakened Ice Admiral")
@@ -1543,7 +1550,7 @@ npc.HumanoidRootPart.Position).Magnitude
             else
               PlayerTP(CFrame.new(6473, 297, -6944))
             end
-          elseif not VerifyTool("Black Leg") and MasteryBlackLeg < 400 then
+elseif not VerifyTool("Black Leg") and MasteryBlackLeg < 400 then
             FireRemote("BuyBlackLeg")
           elseif VerifyTool("Black Leg") and MasteryBlackLeg < 400 then
             EquipToolName("Black Leg")
@@ -1559,9 +1566,9 @@ npc.HumanoidRootPart.Position).Magnitude
               else
                 PlayerTP(CFrame.new(-3350, 282, -10527))
               end
-            end
+end
           end
-        end
+end
       end)
     end
   })
@@ -1590,31 +1597,29 @@ Fighter" then
 npc.HumanoidRootPart.Position).Magnitude
                 NPC = npc
               end
-            end
+end
           end
-          return NPC
+return NPC
         end
-        
-        while getgenv().AutoElectricClaw do task.wait()
+while getgenv().AutoElectricClaw do task.wait()
           if VerifyTool("Electro") then
             MasteryElectro = GetToolLevel("Electro")
           elseif VerifyTool("Electric Claw") then
             MasteryElectricClaw = GetToolLevel("Electric Claw")
           end
-          
-          if MasteryElectro < 400 then
+if MasteryElectro < 400 then
             if not VerifyTool("Electro") then
               FireRemote("BuyElectro")
             else
               EquipToolName("Electro")
             end
-          elseif MasteryElectricClaw < 600 then
+elseif MasteryElectricClaw < 600 then
             if not VerifyTool("Electric Claw") then
               FireRemote("BuyElectricClaw")
             else
               EquipToolName("Electric Claw")
             end
-          end
+end
           
           local Enemie = GetProxyNPC()
           
@@ -1627,9 +1632,9 @@ npc.HumanoidRootPart.Position).Magnitude
             else
               PlayerTP(CFrame.new(-3350, 282, -10527))
             end
-          end
+end
         end
-      end)
+end)
     end
   })
   
@@ -1646,7 +1651,7 @@ npc.HumanoidRootPart.Position).Magnitude
           while getgenv().AutoSharkmanKarate do task.wait()
             SharkmanStats = FireRemote("BuySharkmanKarate", true)
           end
-        end)
+end)
         
         while getgenv().AutoSharkmanKarate do task.wait()
           if VerifyTool("Fishman Karate") then
@@ -1654,8 +1659,7 @@ npc.HumanoidRootPart.Position).Magnitude
           elseif VerifyTool("Sharkman Karate") then
             MasterySharkmanKarate = GetToolLevel("Sharkman Karate")
           end
-          
-          if SharkmanStats == 1 then
+if SharkmanStats == 1 then
             FireRemote("BuySharkmanKarate")
           elseif VerifyTool("Sharkman Karate") then
             EquipToolName("Sharkman Karate")
@@ -1669,7 +1673,7 @@ npc.HumanoidRootPart.Position).Magnitude
 -10419), CFrame.new(-3536, 290, -10607), CFrame.new(-3345, 280, -10667)}, "Water 
 Fighter")
             end
-          elseif VerifyTool("Water Key") and MasteryFishmanKarate >= 400 then
+elseif VerifyTool("Water Key") and MasteryFishmanKarate >= 400 then
             FireRemote("BuySharkmanKarate", true)
           elseif not VerifyTool("Water Key") and MasteryFishmanKarate >= 400 then
             local Enemie = Enemies:FindFirstChild("Water Fighter")
@@ -1683,7 +1687,7 @@ true)end)
 -10419), CFrame.new(-3536, 290, -10607), CFrame.new(-3345, 280, -10667)}, "Water 
 Fighter")
             end
-          elseif not VerifyTool("Fishman Karate") and MasteryFishmanKarate < 400 
+elseif not VerifyTool("Fishman Karate") and MasteryFishmanKarate < 400 
 then
             FireRemote("BuyFishmanKarate")
           elseif VerifyTool("Fishman Karate") and MasteryFishmanKarate < 400 then
@@ -1698,9 +1702,9 @@ then
 -10419), CFrame.new(-3536, 290, -10607),CFrame.new(-3345, 280, -10667)}, "Water 
 Fighter")
             end
-          end
+end
         end
-      end)
+end)
     end
   })
   
@@ -1728,12 +1732,11 @@ Fighter" then
 npc.HumanoidRootPart.Position).Magnitude
                 NPC = npc
               end
-            end
+end
           end
-          return NPC
+return NPC
         end
-        
-        task.spawn(function()
+task.spawn(function()
           while getgenv().AutoDragonTalon do task.wait()
             if not VerifyTool("Fire Essence") then
               FireRemote("Bones", "Buy", 1, 1)
@@ -1741,19 +1744,17 @@ npc.HumanoidRootPart.Position).Magnitude
               FireRemote("BuyDragonTalon", true)
               FireEssence = true
             end
-          end
+end
         end)
         
         while getgenv().AutoDragonTalon do task.wait()
           if VerifyTool("Dragon Claw") then
             MasteryDragonClaw = GetToolLevel("Dragon Claw")
           end
-          
-          if MasteryDragonClaw >= 400 and Sea2 then
+if MasteryDragonClaw >= 400 and Sea2 then
             FireRemote("TravelZou")
           end
-          
-          if FireEssence and MasteryDragonClaw >= 400 then
+if FireEssence and MasteryDragonClaw >= 400 then
             FireRemote("BuyDragonTalon")
           elseif not VerifyTool("Dragon Claw") and MasteryDragonClaw < 400 or not 
 FireEssence and not VerifyTool("Dragon Claw") then
@@ -1774,9 +1775,9 @@ FireEssence and VerifyTool("Dragon Claw") then
               else
                 PlayerTP(CFrame.new(-3350, 282, -10527))
               end
-            end
+end
           end
-        end
+end
       end)
     end
   })
@@ -1808,12 +1809,11 @@ Fighter" then
 npc.HumanoidRootPart.Position).Magnitude
                 NPC = npc
               end
-            end
+end
           end
-          return NPC
+return NPC
         end
-        
-        while getgenv().AutoSuperhuman do task.wait()
+while getgenv().AutoSuperhuman do task.wait()
           if VerifyTool("Black Leg") then
             MasteryBlackLeg = GetToolLevel("Black Leg")
           elseif VerifyTool("Electro") then
@@ -1825,39 +1825,38 @@ npc.HumanoidRootPart.Position).Magnitude
           elseif VerifyTool("Superhuman") then
             MasterySuperhuman = GetToolLevel("Superhuman")
           end
-          
-          if MasteryBlackLeg < 300 then
+if MasteryBlackLeg < 300 then
             if not VerifyTool("Black Leg") then
               FireRemote("BuyBlackLeg")
             else
               EquipToolName("Black Leg")
             end
-          elseif MasteryElectro < 300 then
+elseif MasteryElectro < 300 then
             if not VerifyTool("Electro") then
               FireRemote("BuyElectro")
             else
               EquipToolName("Electro")
             end
-          elseif MasteryFishmanKarate < 300 then
+elseif MasteryFishmanKarate < 300 then
             if not VerifyTool("Fishman Karate") then
               FireRemote("BuyFishmanKarate")
             else
               EquipToolName("Fishman Karate")
             end
-          elseif MasteryDragonClaw < 300 then
+elseif MasteryDragonClaw < 300 then
             if not VerifyTool("Dragon Claw") then
               FireRemote("BlackbeardReward","DragonClaw","1")
               FireRemote("BlackbeardReward","DragonClaw","2")
             else
               EquipToolName("Dragon Claw")
             end
-          elseif MasterySuperhuman < 600 then
+elseif MasterySuperhuman < 600 then
             if not VerifyTool("Superhuman") then
               FireRemote("BuySuperhuman")
             else
               EquipToolName("Superhuman")
             end
-          end
+end
           
           local Enemie = GetProxyNPC()
           
@@ -1870,9 +1869,9 @@ npc.HumanoidRootPart.Position).Magnitude
             else
               PlayerTP(CFrame.new(-3350, 282, -10527))
             end
-          end
+end
         end
-      end)
+end)
     end
   })
   
@@ -1896,9 +1895,9 @@ npc.Name == "Demonic Soul" or npc.Name == "Posessed Mummy" then
 npc.HumanoidRootPart.Position).Magnitude
                 NPC = npc
               end
-            end
+end
           end
-          return NPC
+return NPC
         end
         
         -- V1
@@ -1919,8 +1918,7 @@ npc.HumanoidRootPart.Position).Magnitude
           if Sea2 then
             FireRemote("TravelZou")
           end
-          
-          if VerifyTool("Black Leg") then
+if VerifyTool("Black Leg") then
             MasteryBlackLeg = GetToolLevel("Black Leg")
           elseif VerifyTool("Electro") then
             MasteryElectro = GetToolLevel("Electro")
@@ -1941,69 +1939,68 @@ npc.HumanoidRootPart.Position).Magnitude
           elseif VerifyTool("Godhuman") then
             MasteryGodHuman = GetToolLevel("Godhuman")
           end
-          
-          if MasteryBlackLeg < 400 then
+if MasteryBlackLeg < 400 then
             if not VerifyTool("Black Leg") then
               BuyFightStyle("BuyBlackLeg")
             else
               EquipToolName("Black Leg")
             end
-          elseif MasteryElectro < 400 then
+elseif MasteryElectro < 400 then
             if not VerifyTool("Electro") then
               BuyFightStyle("BuyElectro")
             else
               EquipToolName("Electro")
             end
-          elseif MasteryFishmanKarate < 400 then
+elseif MasteryFishmanKarate < 400 then
             if not VerifyTool("Fishman Karate") then
               BuyFightStyle("BuyFishmanKarate")
             else
               EquipToolName("Fishman Karate")
             end
-          elseif MasteryDragonClaw < 400 then
+elseif MasteryDragonClaw < 400 then
             if not VerifyTool("Dragon Claw") then
               FireRemote("BlackbeardReward","DragonClaw","1")
               FireRemote("BlackbeardReward","DragonClaw","2")
             else
               EquipToolName("Dragon Claw")
             end
-          elseif MasterySuperhuman < 400 then
+elseif MasterySuperhuman < 400 then
             if not VerifyTool("Superhuman") then
               BuyFightStyle("BuySuperhuman")
             else
               EquipToolName("Superhuman")
             end
-          elseif MasteryDeathStep < 400 then
+elseif MasteryDeathStep < 400 then
             if not VerifyTool("Death Step") then
               BuyFightStyle("BuyDeathStep")
             else
               EquipToolName("Death Step")
             end
-          elseif MasteryElectricClaw < 400 then
+elseif MasteryElectricClaw < 400 then
             if not VerifyTool("Electric Claw") then
               BuyFightStyle("BuyElectricClaw")
             else
               EquipToolName("Electric Claw")
             end
-          elseif MasterySharkmanKarate < 400 then
+elseif MasterySharkmanKarate < 400 then
             if not VerifyTool("Sharkman Karate") then
               BuyFightStyle("BuySharkmanKarate")
             else
               EquipToolName("Sharkman Karate")
             end
-          elseif MasteryDragonTalon < 400 then
+elseif MasteryDragonTalon < 400 then
             if not VerifyTool("Dragon Talon") then
               BuyFightStyle("BuyDragonTalon")
             else
               EquipToolName("Dragon Talon")
             end
-          else
+else
             if not VerifyTool("Godhuman") then
               BuyFightStyle("BuyGodhuman")
             else
               EquipToolName("Godhuman")
             end
-          end
+end
           
           local Enemie = GetProxyNPC()
           
@@ -2013,7 +2010,7 @@ npc.HumanoidRootPart.Position).Magnitude
           else
             PlayerTP(CFrame.new(-9513, 164, 5786))
           end
-        end
+end
       end)
     end
   })
@@ -2052,9 +2049,9 @@ npc.Name == "Demonic Soul" or npc.Name == "Posessed Mummy" then
 npc.HumanoidRootPart.Position).Magnitude
                 NPC = npc
               end
-            end
+end
           end
-          return NPC
+return NPC
         end
         
         -- V1
@@ -2100,75 +2097,74 @@ npc.HumanoidRootPart.Position).Magnitude
           elseif VerifyTool("Sanguine Art") then
             MasterySanguineArt = GetToolLevel("Sanguine Art")
           end
-          
-          if MasteryBlackLeg < MaxMastery then
+if MasteryBlackLeg < MaxMastery then
             if not VerifyTool("Black Leg") then
               BuyFightStyle("BuyBlackLeg")
             else
               EquipToolName("Black Leg")
             end
-          elseif MasteryElectro < MaxMastery then
+elseif MasteryElectro < MaxMastery then
             if not VerifyTool("Electro") then
               BuyFightStyle("BuyElectro")
             else
               EquipToolName("Electro")
             end
-          elseif MasteryFishmanKarate < MaxMastery then
+elseif MasteryFishmanKarate < MaxMastery then
             if not VerifyTool("Fishman Karate") then
               BuyFightStyle("BuyFishmanKarate")
             else
               EquipToolName("Fishman Karate")
             end
-          elseif MasteryDragonClaw < MaxMastery then
+elseif MasteryDragonClaw < MaxMastery then
             if not VerifyTool("Dragon Claw") then
               FireRemote("BlackbeardReward","DragonClaw","1")
               FireRemote("BlackbeardReward","DragonClaw","2")
             else
               EquipToolName("Dragon Claw")
             end
-          elseif MasterySuperhuman < MaxMastery then
+elseif MasterySuperhuman < MaxMastery then
             if not VerifyTool("Superhuman") then
               BuyFightStyle("BuySuperhuman")
             else
               EquipToolName("Superhuman")
             end
-          elseif MasteryDeathStep < MaxMastery then
+elseif MasteryDeathStep < MaxMastery then
             if not VerifyTool("Death Step") then
               BuyFightStyle("BuyDeathStep")
             else
               EquipToolName("Death Step")
             end
-          elseif MasteryElectricClaw < MaxMastery then
+elseif MasteryElectricClaw < MaxMastery then
             if not VerifyTool("Electric Claw") then
               BuyFightStyle("BuyElectricClaw")
             else
               EquipToolName("Electric Claw")
             end
-          elseif MasterySharkmanKarate < MaxMastery then
+elseif MasterySharkmanKarate < MaxMastery then
             if not VerifyTool("Sharkman Karate") then
               BuyFightStyle("BuySharkmanKarate")
             else
               EquipToolName("Sharkman Karate")
             end
-          elseif MasteryDragonTalon < MaxMastery then
+elseif MasteryDragonTalon < MaxMastery then
             if not VerifyTool("Dragon Talon") then
               BuyFightStyle("BuyDragonTalon")
             else
               EquipToolName("Dragon Talon")
             end
-          elseif MasteryGodHuman < MaxMastery then
+elseif MasteryGodHuman < MaxMastery then
             if not VerifyTool("Godhuman") then
               BuyFightStyle("BuyGodhuman")
             else
               EquipToolName("Godhuman")
             end
-          elseif MasterySanguineArt < MaxMastery then
+elseif MasterySanguineArt < MaxMastery then
             if not VerifyTool("Sanguine Art") then
               BuyFightStyle("BuySanguineArt")
             else
               EquipToolName("Sanguine Art")
             end
-          end
+end
           
           if not getgenv().AutoFarm_Level and not getgenv().AutoFarmBone and not 
 getgenv().AutoFarmEctoplasm then
@@ -2180,9 +2176,9 @@ getgenv().AutoFarmEctoplasm then
             else
               PlayerTP(CFrame.new(-9513, 164, 5786))
             end
-          end
+end
         end
-      end)
+end)
     end
   }))
 end
@@ -2199,7 +2195,7 @@ table.insert(AFKOptions, QuestsTabs:AddToggle({
           FireRemote("ColorsDealer", "2")
         end)
       end
-    end)
+end)
   end
 }))
 if Sea3 then
@@ -2359,7 +2355,7 @@ function(Value)
         elseif Island == "Fountain City" then
           PlayerTP(CFrame.new())
         end
-      elseif Sea2 then
+elseif Sea2 then
         -- Sea 2 Teleports
         if Island == "The Cafe" then
           PlayerTP(CFrame.new(-382, 73, 290))
@@ -2388,7 +2384,7 @@ function(Value)
         elseif Island == "Ussop Island" then
           PlayerTP(CFrame.new(4816, 8, 2863))
         end
-      elseif Sea3 then
+elseif Sea3 then
         -- Sea 3 Teleports
         if Island == "Mansion" then
           PlayerTP(CFrame.new(-12471, 374, -7551))
@@ -2415,9 +2411,9 @@ function(Value)
         elseif Island == "Tiki Outpost" then
           PlayerTP(CFrame.new(-16224, 9, 439))
         end
-      end
+end
     end
-  end)
+end)
 end})
 TPToggle:Callback(function(Value)
   if Value then
@@ -2427,7 +2423,7 @@ TPToggle:Callback(function(Value)
       if plrPP then
         Mag = (plrPP.Position - TeleportPos).Magnitude
       end
-    until not getgenv().TeleportToIsland or Mag < 15
+until not getgenv().TeleportToIsland or Mag < 15
     TPToggle:Set(false)
   end
 end)
@@ -2438,7 +2434,7 @@ if Sea3 then
     for i = 1, 5 do task.wait()
       Player.Character:SetPrimaryPartCFrame(CFrame.new(28286, 14897, 103))
     end
-  end})
+end})
 end
 Misc:AddSection({"Join Server"})
 local ServerId = ""
@@ -2570,7 +2566,7 @@ Misc:AddButton({
     for _,code in pairs(Codes) do
       task.spawn(function()ReplicatedStorage.Remotes.Redeem:InvokeServer(code)end)
     end
-  end
+end
 })
 Misc:AddSection({"Team"})
 Misc:AddButton({"Join Pirates Team", function()
@@ -2598,7 +2594,7 @@ Lighting:FindFirstChild("Sky")
   if Sky then
     Sky:Destroy()
   end
-  if LightingLayers then
+if LightingLayers then
     LightingLayers:Destroy()
   end
 end})
@@ -2619,7 +2615,7 @@ Misc:AddToggle({"Walk On Water", true, function(Value)
     while getgenv().WalkOnWater do task.wait(0.1)
       Map:WaitForChild("WaterBase-Plane", 9e9).Size = Vector3.new(1000, 113, 1000)
     end
-    Map:WaitForChild("WaterBase-Plane", 9e9).Size = Vector3.new(1000, 80, 1000)
+Map:WaitForChild("WaterBase-Plane", 9e9).Size = Vector3.new(1000, 80, 1000)
   end)
 end, "Misc/WalkOnWater"})
 Misc:AddToggle({"Anti AFK", true, function(Value)
@@ -2627,9 +2623,10 @@ Misc:AddToggle({"Anti AFK", true, function(Value)
   task.spawn(function()
     while getgenv().AntiAFK do
       VirtualUser:CaptureController()
-      VirtualUser:ClickButton1(Vector2.new(math.huge, math.huge))task.wait(600)
+      VirtualUser:ClickButton1(Vector2.new(math.huge, math.huge))
+ task.wait(600)
     end
-  end)
+end)
 end, "Misc/AntiAFK"})
 --[[Shop:AddSection({"Christmas"})
 Shop:AddButton({"Buy 2x EXP (15 mins.) < 50 Candies >", 
@@ -2726,7 +2723,7 @@ workspace.ChildAdded:Connect(function(part)
         Time = NotifiTime
       })
     end
-  end
+end
 end)
 Visual:AddSection({"Notifications"})
 Visual:AddSlider({Name = "Nofication Time",Max = 120, Min = 5, Increase = 1, 
@@ -2765,18 +2762,18 @@ Vector3.new(math.random(-50, 50), 80, math.random(-50, 50)))
         if part.Parent:FindFirstChild("Humanoid") then
           Fruit.Parent = Players[part.Parent.Name].Backpack
         end
-      end)
+end)
       pcall(function()
         Fruit.Fruit["AnimationController"]:LoadAnimation(Fruit.Fruit.Idle):Play()
       end)
     end
-  end})
+end})
   Visual:AddButton({"Bring Fruits", function()
     for _,Fruit in pairs(Map:GetChildren()) do
       if Fruit:IsA("Tool") or Fruit.Name:find("Fruit") then
         Fruit.Parent = Player.Backpack
       end
-    end
+end
   end})
 end
 Visual:AddSection({"Fake"})
@@ -2845,13 +2842,14 @@ task.spawn(function()
   local EffectContainer = ReplicatedStorage:WaitForChild("Effect", 
 9e9):WaitForChild("Container", 9e9)
   
-  RunService.RenderStepped:Connect(function()
+  RunService.Rend
+erStepped:Connect(function()
     local DeathEffect = EffectContainer:FindFirstChild("Death")
     
     if DeathEffect then
       DeathEffect:Destroy()
     end
-  end)
+end)
   
   hookfunction(error, function()end)
   hookfunction(warn, function()end)
