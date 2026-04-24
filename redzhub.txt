@@ -3,7 +3,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/mai
 Source.Lua"))()
 local Window = redzlib:MakeWindow({
   Title = "redz Hub : Blox Fruits",
-  SubTitle = "by redz9999",
+  SubTitle = "by sasuke",
   SaveFolder = "redz Hub | Blox Fruits.lua"
 })
 local AFKOptions = {}
@@ -13,7 +13,7 @@ Discord:AddDiscordInvite({
   Description = "Join our discord community to receive information about the next 
 update",
   Logo = "rbxassetid://15298567397",
-  Invite = "https://discord.gg/7aR7kNVt4g"
+  Invite = "https://discord.gg/redzhub"
 })
 local MainFarm = Window:MakeTab({"Farm", "Home"})
 if Sea3 then
